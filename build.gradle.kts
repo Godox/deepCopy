@@ -6,6 +6,6 @@ plugins {
 }
 
 allprojects {
-    group = "org.jetbrains.kotlin.compiler.plugin.template"
-    version = "0.1.0-SNAPSHOT"
+    group = "fr.godox.deepcopy"
+    version = "2.4.20-0.1.1"
 }

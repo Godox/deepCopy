@@ -1,8 +1,8 @@
 package org.jetbrains.kotlin.compiler.plugin.template
 
+import fr.godox.deepcopy.BuildConfig
 import org.gradle.api.Project
 import org.gradle.api.provider.Provider
-import org.jetbrains.kotlin.compiler.plugin.template.BuildConfig.ANNOTATIONS_LIBRARY_COORDINATES
 import org.jetbrains.kotlin.gradle.plugin.KotlinCompilation
 import org.jetbrains.kotlin.gradle.plugin.KotlinCompilerPluginSupportPlugin
 import org.jetbrains.kotlin.gradle.plugin.SubpluginArtifact
@@ -31,7 +31,7 @@ class SimpleGradlePlugin : KotlinCompilerPluginSupportPlugin {
 
         kotlinCompilation.defaultSourceSet.dependencies {
             // Add annotations library to all compilations.
-            implementation(ANNOTATIONS_LIBRARY_COORDINATES)
+            implementation(BuildConfig.ANNOTATIONS_LIBRARY_COORDINATES)
         }
 
         kotlinCompilation.compileTaskProvider.configure {

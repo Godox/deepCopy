@@ -1,16 +1,28 @@
 FILE: simple.kt
     package foo.bar
 
-    @R|org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation|() public final fun test(): R|kotlin/Unit| {
-        lval s: R|kotlin/String| = R|foo/bar/MyClass|().R|foo/bar/MyClass.foo|()
-        R|<local>/s|.<Unresolved name: inc>#()
-    }
-FILE: foo/bar/MyClass.kt
-    package foo.bar
+    @R|org/jetbrains/kotlin/compiler/plugin/template/DeepCopy|() public final data class MyDataClass : R|kotlin/Any|, R|org/jetbrains/kotlin/compiler/plugin/template/DeepCopiable<foo/bar/MyDataClass>| {
+        public constructor(a: R|kotlin/String|, b: R|kotlin/String|, c: R|kotlin/collections/List<kotlin/String>|): R|foo/bar/MyDataClass| {
+            super<R|kotlin/Any|>()
+        }
 
-    public final class MyClass : R|kotlin/Any| {
-        public final fun foo(): R|kotlin/String|
+        public final val a: R|kotlin/String| = R|<local>/a|
+            public get(): R|kotlin/String|
 
-        public constructor(): R|foo/bar/MyClass|
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public final val c: R|kotlin/collections/List<kotlin/String>| = R|<local>/c|
+            public get(): R|kotlin/collections/List<kotlin/String>|
+
+        public final operator fun component1(): R|kotlin/String|
+
+        public final operator fun component2(): R|kotlin/String|
+
+        public final operator fun component3(): R|kotlin/collections/List<kotlin/String>|
+
+        public final fun copy(a: R|kotlin/String| = this@R|foo/bar/MyDataClass|.R|foo/bar/MyDataClass.a|, b: R|kotlin/String| = this@R|foo/bar/MyDataClass|.R|foo/bar/MyDataClass.b|, c: R|kotlin/collections/List<kotlin/String>| = this@R|foo/bar/MyDataClass|.R|foo/bar/MyDataClass.c|): R|foo/bar/MyDataClass|
+
+        public final fun deepCopy(): R|foo/bar/MyDataClass|
 
     }

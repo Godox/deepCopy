@@ -12,6 +12,8 @@ plugins {
     alias(libs.plugins.gradle.java.test.fixtures)
     alias(libs.plugins.node.gradle)
     alias(libs.plugins.gradle.idea)
+    id("com.vanniktech.maven.publish") version("0.34.0")
+    `maven-publish`
 }
 
 project.plugins.apply(D8Plugin::class.java)
@@ -62,7 +64,10 @@ dependencies {
     testFixturesApi(libs.kotlin.compiler)
     testFixturesRuntimeOnly(libs.junit)
 
+    testFixturesApi(project(":plugin-annotations"))
+    implementation(project(":plugin-annotations"))
     annotationsRuntimeClasspath(project(":plugin-annotations"))
+    testArtifacts(project(":plugin-annotations"))
 
     // Dependencies required to run the internal test framework.
     testArtifacts(libs.kotlin.stdlib)

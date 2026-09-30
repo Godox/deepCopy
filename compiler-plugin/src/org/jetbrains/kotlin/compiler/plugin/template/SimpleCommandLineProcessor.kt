@@ -1,5 +1,6 @@
 package org.jetbrains.kotlin.compiler.plugin.template
 
+import fr.godox.deepcopy.BuildConfig
 import org.jetbrains.kotlin.compiler.plugin.AbstractCliOption
 import org.jetbrains.kotlin.compiler.plugin.CliOption
 import org.jetbrains.kotlin.compiler.plugin.CommandLineProcessor

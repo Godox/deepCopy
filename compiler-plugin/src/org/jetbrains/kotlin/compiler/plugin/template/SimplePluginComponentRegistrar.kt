@@ -1,5 +1,6 @@
 package org.jetbrains.kotlin.compiler.plugin.template
 
+import fr.godox.deepcopy.BuildConfig
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar
 import org.jetbrains.kotlin.compiler.plugin.template.ir.SimpleIrGenerationExtension

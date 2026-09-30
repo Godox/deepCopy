@@ -1,47 +1,549 @@
-FILE fqName:foo.bar fileName:/simple.kt
-  FUN name:box visibility:public modality:FINAL returnType:kotlin.String
+FILE fqName:<root> fileName:/simple.kt
+  CLASS CLASS name:MyDataClass modality:FINAL visibility:public [data] superTypes:[kotlin.Any; org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable<<root>.MyDataClass>]
     annotations:
-      SomeAnnotation
-    BLOCK_BODY
-      VAR name:result type:kotlin.String [val]
-        CALL 'public final fun foo (): kotlin.String declared in foo.bar.MyClass' type=kotlin.String origin=null
-          ARG <this>: CONSTRUCTOR_CALL 'public constructor <init> () declared in foo.bar.MyClass' type=foo.bar.MyClass origin=null
-      RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in foo.bar'
-        WHEN type=kotlin.String origin=IF
-          BRANCH
-            if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
-              ARG arg0: GET_VAR 'val result: kotlin.String declared in foo.bar.box' type=kotlin.String origin=null
-              ARG arg1: CONST String type=kotlin.String value="Hello world"
-            then: BLOCK type=kotlin.String origin=null
-              CONST String type=kotlin.String value="OK"
-          BRANCH
-            if: CONST Boolean type=kotlin.Boolean value=true
-            then: BLOCK type=kotlin.String origin=null
-              STRING_CONCATENATION type=kotlin.String
-                CONST String type=kotlin.String value="Fail: "
-                GET_VAR 'val result: kotlin.String declared in foo.bar.box' type=kotlin.String origin=null
-FILE fqName:foo.bar fileName:foo/bar/MyClass.kt
-  CLASS GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.SimpleClassGenerator.Key] CLASS name:MyClass modality:FINAL visibility:public superTypes:[kotlin.Any]
-    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:foo.bar.MyClass
-    CONSTRUCTOR GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.SimpleClassGenerator.Key] visibility:public returnType:foo.bar.MyClass
+      DeepCopy
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:<root>.MyDataClass
+    PROPERTY name:string visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:string type:kotlin.String visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'string: kotlin.String declared in <root>.MyDataClass.<init>' type=kotlin.String origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-string> visibility:public modality:FINAL returnType:kotlin.String
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+        correspondingProperty: PROPERTY name:string visibility:public modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-string> (): kotlin.String declared in <root>.MyDataClass'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:string type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.<get-string>' type=<root>.MyDataClass origin=null
+    PROPERTY name:primitive visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:primitive type:kotlin.Int visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'primitive: kotlin.Int declared in <root>.MyDataClass.<init>' type=kotlin.Int origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-primitive> visibility:public modality:FINAL returnType:kotlin.Int
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+        correspondingProperty: PROPERTY name:primitive visibility:public modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-primitive> (): kotlin.Int declared in <root>.MyDataClass'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitive type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.<get-primitive>' type=<root>.MyDataClass origin=null
+    PROPERTY name:stringList visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:stringList type:kotlin.collections.List<kotlin.String> visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'stringList: kotlin.collections.List<kotlin.String> declared in <root>.MyDataClass.<init>' type=kotlin.collections.List<kotlin.String> origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-stringList> visibility:public modality:FINAL returnType:kotlin.collections.List<kotlin.String>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+        correspondingProperty: PROPERTY name:stringList visibility:public modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-stringList> (): kotlin.collections.List<kotlin.String> declared in <root>.MyDataClass'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:stringList type:kotlin.collections.List<kotlin.String> visibility:private [final]' type=kotlin.collections.List<kotlin.String> origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.<get-stringList>' type=<root>.MyDataClass origin=null
+    PROPERTY name:primitiveList visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:primitiveList type:kotlin.collections.List<kotlin.Int> visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'primitiveList: kotlin.collections.List<kotlin.Int> declared in <root>.MyDataClass.<init>' type=kotlin.collections.List<kotlin.Int> origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-primitiveList> visibility:public modality:FINAL returnType:kotlin.collections.List<kotlin.Int>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+        correspondingProperty: PROPERTY name:primitiveList visibility:public modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-primitiveList> (): kotlin.collections.List<kotlin.Int> declared in <root>.MyDataClass'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitiveList type:kotlin.collections.List<kotlin.Int> visibility:private [final]' type=kotlin.collections.List<kotlin.Int> origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.<get-primitiveList>' type=<root>.MyDataClass origin=null
+    PROPERTY name:deepCopiableClass visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:deepCopiableClass type:<root>.MyNestedDataClass visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'deepCopiableClass: <root>.MyNestedDataClass declared in <root>.MyDataClass.<init>' type=<root>.MyNestedDataClass origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-deepCopiableClass> visibility:public modality:FINAL returnType:<root>.MyNestedDataClass
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+        correspondingProperty: PROPERTY name:deepCopiableClass visibility:public modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-deepCopiableClass> (): <root>.MyNestedDataClass declared in <root>.MyDataClass'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClass type:<root>.MyNestedDataClass visibility:private [final]' type=<root>.MyNestedDataClass origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.<get-deepCopiableClass>' type=<root>.MyDataClass origin=null
+    PROPERTY name:deepCopiableClassList visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:deepCopiableClassList type:kotlin.collections.List<<root>.MyNestedDataClass> visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'deepCopiableClassList: kotlin.collections.List<<root>.MyNestedDataClass> declared in <root>.MyDataClass.<init>' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-deepCopiableClassList> visibility:public modality:FINAL returnType:kotlin.collections.List<<root>.MyNestedDataClass>
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+        correspondingProperty: PROPERTY name:deepCopiableClassList visibility:public modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-deepCopiableClassList> (): kotlin.collections.List<<root>.MyNestedDataClass> declared in <root>.MyDataClass'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClassList type:kotlin.collections.List<<root>.MyNestedDataClass> visibility:private [final]' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.<get-deepCopiableClassList>' type=<root>.MyDataClass origin=null
+    CONSTRUCTOR visibility:public returnType:<root>.MyDataClass [primary]
+      VALUE_PARAMETER kind:Regular name:string index:0 type:kotlin.String
+      VALUE_PARAMETER kind:Regular name:primitive index:1 type:kotlin.Int
+      VALUE_PARAMETER kind:Regular name:stringList index:2 type:kotlin.collections.List<kotlin.String>
+      VALUE_PARAMETER kind:Regular name:primitiveList index:3 type:kotlin.collections.List<kotlin.Int>
+      VALUE_PARAMETER kind:Regular name:deepCopiableClass index:4 type:<root>.MyNestedDataClass
+      VALUE_PARAMETER kind:Regular name:deepCopiableClassList index:5 type:kotlin.collections.List<<root>.MyNestedDataClass>
       BLOCK_BODY
         DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
-        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.SimpleClassGenerator.Key] CLASS name:MyClass modality:FINAL visibility:public superTypes:[kotlin.Any]' type=foo.bar.MyClass
-    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [fake_override,operator]
-      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:MyDataClass modality:FINAL visibility:public [data] superTypes:[kotlin.Any; org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable<<root>.MyDataClass>]' type=kotlin.Unit
+    FUN GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.SimpleClassGenerator.Key] name:deepCopy visibility:public modality:FINAL returnType:<root>.MyDataClass
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+      overridden:
+        public abstract fun deepCopy (): T of org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable declared in org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun deepCopy (): <root>.MyDataClass declared in <root>.MyDataClass'
+          CONSTRUCTOR_CALL 'public constructor <init> (string: kotlin.String, primitive: kotlin.Int, stringList: kotlin.collections.List<kotlin.String>, primitiveList: kotlin.collections.List<kotlin.Int>, deepCopiableClass: <root>.MyNestedDataClass, deepCopiableClassList: kotlin.collections.List<<root>.MyNestedDataClass>) declared in <root>.MyDataClass' type=<root>.MyDataClass origin=null
+            ARG string: CALL 'public final fun <get-string> (): kotlin.String declared in <root>.MyDataClass' type=kotlin.String origin=null
+              ARG <this>: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.deepCopy' type=<root>.MyDataClass origin=null
+            ARG primitive: CALL 'public final fun <get-primitive> (): kotlin.Int declared in <root>.MyDataClass' type=kotlin.Int origin=null
+              ARG <this>: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.deepCopy' type=<root>.MyDataClass origin=null
+            ARG stringList: CALL 'public final fun toList <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.toList>): kotlin.collections.List<T of kotlin.collections.toList> declared in kotlin.collections' type=kotlin.collections.List<T of kotlin.collections.toList> origin=null
+              TYPE_ARG T: <none>
+              ARG <this>: CALL 'public final fun <get-stringList> (): kotlin.collections.List<kotlin.String> declared in <root>.MyDataClass' type=kotlin.collections.List<kotlin.String> origin=null
+                ARG <this>: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.deepCopy' type=<root>.MyDataClass origin=null
+            ARG primitiveList: CALL 'public final fun toList <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.toList>): kotlin.collections.List<T of kotlin.collections.toList> declared in kotlin.collections' type=kotlin.collections.List<T of kotlin.collections.toList> origin=null
+              TYPE_ARG T: <none>
+              ARG <this>: CALL 'public final fun <get-primitiveList> (): kotlin.collections.List<kotlin.Int> declared in <root>.MyDataClass' type=kotlin.collections.List<kotlin.Int> origin=null
+                ARG <this>: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.deepCopy' type=<root>.MyDataClass origin=null
+            ARG deepCopiableClass: CALL 'public abstract fun deepCopy (): T of org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable declared in org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable' type=T of org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable origin=null
+              ARG <this>: CALL 'public final fun <get-deepCopiableClass> (): <root>.MyNestedDataClass declared in <root>.MyDataClass' type=<root>.MyNestedDataClass origin=null
+                ARG <this>: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.deepCopy' type=<root>.MyDataClass origin=null
+            ARG deepCopiableClassList: CALL 'public final fun map <T, R> (<this>: kotlin.collections.Iterable<T of kotlin.collections.map>, transform: kotlin.Function1<T of kotlin.collections.map, R of kotlin.collections.map>): kotlin.collections.List<R of kotlin.collections.map> declared in kotlin.collections' type=kotlin.collections.List<R of kotlin.collections.map> origin=null
+              TYPE_ARG T: <root>.MyNestedDataClass
+              TYPE_ARG R: <root>.MyNestedDataClass
+              ARG <this>: CALL 'public final fun <get-deepCopiableClassList> (): kotlin.collections.List<<root>.MyNestedDataClass> declared in <root>.MyDataClass' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=null
+                ARG <this>: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.deepCopy' type=<root>.MyDataClass origin=null
+              ARG transform: FUN_EXPR type=kotlin.Function1<<root>.MyNestedDataClass, <root>.MyNestedDataClass> origin=LAMBDA
+                FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:<root>.MyNestedDataClass
+                  VALUE_PARAMETER kind:Regular name:params index:0 type:<root>.MyNestedDataClass
+                  BLOCK_BODY
+                    RETURN type=kotlin.Nothing from='local final fun <anonymous> (params: <root>.MyNestedDataClass): <root>.MyNestedDataClass declared in <root>.MyDataClass.deepCopy'
+                      CALL 'public abstract fun deepCopy (): T of org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable declared in org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable' type=T of org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable origin=null
+                        ARG <this>: GET_VAR 'params: <root>.MyNestedDataClass declared in <root>.MyDataClass.deepCopy.<anonymous>' type=<root>.MyNestedDataClass origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:component1 visibility:public modality:FINAL returnType:kotlin.String [operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component1 (): kotlin.String declared in <root>.MyDataClass'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:string type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+            receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.component1' type=<root>.MyDataClass origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:component2 visibility:public modality:FINAL returnType:kotlin.Int [operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component2 (): kotlin.Int declared in <root>.MyDataClass'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitive type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+            receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.component2' type=<root>.MyDataClass origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:component3 visibility:public modality:FINAL returnType:kotlin.collections.List<kotlin.String> [operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component3 (): kotlin.collections.List<kotlin.String> declared in <root>.MyDataClass'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:stringList type:kotlin.collections.List<kotlin.String> visibility:private [final]' type=kotlin.collections.List<kotlin.String> origin=null
+            receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.component3' type=<root>.MyDataClass origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:component4 visibility:public modality:FINAL returnType:kotlin.collections.List<kotlin.Int> [operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component4 (): kotlin.collections.List<kotlin.Int> declared in <root>.MyDataClass'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitiveList type:kotlin.collections.List<kotlin.Int> visibility:private [final]' type=kotlin.collections.List<kotlin.Int> origin=null
+            receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.component4' type=<root>.MyDataClass origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:component5 visibility:public modality:FINAL returnType:<root>.MyNestedDataClass [operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component5 (): <root>.MyNestedDataClass declared in <root>.MyDataClass'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClass type:<root>.MyNestedDataClass visibility:private [final]' type=<root>.MyNestedDataClass origin=null
+            receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.component5' type=<root>.MyDataClass origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:component6 visibility:public modality:FINAL returnType:kotlin.collections.List<<root>.MyNestedDataClass> [operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component6 (): kotlin.collections.List<<root>.MyNestedDataClass> declared in <root>.MyDataClass'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClassList type:kotlin.collections.List<<root>.MyNestedDataClass> visibility:private [final]' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=null
+            receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.component6' type=<root>.MyDataClass origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:copy visibility:public modality:FINAL returnType:<root>.MyDataClass
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
+      VALUE_PARAMETER kind:Regular name:string index:1 type:kotlin.String
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:string type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+            receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.copy' type=<root>.MyDataClass origin=null
+      VALUE_PARAMETER kind:Regular name:primitive index:2 type:kotlin.Int
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitive type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+            receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.copy' type=<root>.MyDataClass origin=null
+      VALUE_PARAMETER kind:Regular name:stringList index:3 type:kotlin.collections.List<kotlin.String>
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:stringList type:kotlin.collections.List<kotlin.String> visibility:private [final]' type=kotlin.collections.List<kotlin.String> origin=null
+            receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.copy' type=<root>.MyDataClass origin=null
+      VALUE_PARAMETER kind:Regular name:primitiveList index:4 type:kotlin.collections.List<kotlin.Int>
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitiveList type:kotlin.collections.List<kotlin.Int> visibility:private [final]' type=kotlin.collections.List<kotlin.Int> origin=null
+            receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.copy' type=<root>.MyDataClass origin=null
+      VALUE_PARAMETER kind:Regular name:deepCopiableClass index:5 type:<root>.MyNestedDataClass
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClass type:<root>.MyNestedDataClass visibility:private [final]' type=<root>.MyNestedDataClass origin=null
+            receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.copy' type=<root>.MyDataClass origin=null
+      VALUE_PARAMETER kind:Regular name:deepCopiableClassList index:6 type:kotlin.collections.List<<root>.MyNestedDataClass>
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClassList type:kotlin.collections.List<<root>.MyNestedDataClass> visibility:private [final]' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=null
+            receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.copy' type=<root>.MyDataClass origin=null
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun copy (string: kotlin.String, primitive: kotlin.Int, stringList: kotlin.collections.List<kotlin.String>, primitiveList: kotlin.collections.List<kotlin.Int>, deepCopiableClass: <root>.MyNestedDataClass, deepCopiableClassList: kotlin.collections.List<<root>.MyNestedDataClass>): <root>.MyDataClass declared in <root>.MyDataClass'
+          CONSTRUCTOR_CALL 'public constructor <init> (string: kotlin.String, primitive: kotlin.Int, stringList: kotlin.collections.List<kotlin.String>, primitiveList: kotlin.collections.List<kotlin.Int>, deepCopiableClass: <root>.MyNestedDataClass, deepCopiableClassList: kotlin.collections.List<<root>.MyNestedDataClass>) declared in <root>.MyDataClass' type=<root>.MyDataClass origin=null
+            ARG string: GET_VAR 'string: kotlin.String declared in <root>.MyDataClass.copy' type=kotlin.String origin=null
+            ARG primitive: GET_VAR 'primitive: kotlin.Int declared in <root>.MyDataClass.copy' type=kotlin.Int origin=null
+            ARG stringList: GET_VAR 'stringList: kotlin.collections.List<kotlin.String> declared in <root>.MyDataClass.copy' type=kotlin.collections.List<kotlin.String> origin=null
+            ARG primitiveList: GET_VAR 'primitiveList: kotlin.collections.List<kotlin.Int> declared in <root>.MyDataClass.copy' type=kotlin.collections.List<kotlin.Int> origin=null
+            ARG deepCopiableClass: GET_VAR 'deepCopiableClass: <root>.MyNestedDataClass declared in <root>.MyDataClass.copy' type=<root>.MyNestedDataClass origin=null
+            ARG deepCopiableClassList: GET_VAR 'deepCopiableClassList: kotlin.collections.List<<root>.MyNestedDataClass> declared in <root>.MyDataClass.copy' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
       VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
       overridden:
         public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
-    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN returnType:kotlin.Int [fake_override]
-      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              ARG arg0: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+              ARG arg1: GET_VAR 'other: kotlin.Any? declared in <root>.MyDataClass.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyDataClass'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=<root>.MyDataClass
+              GET_VAR 'other: kotlin.Any? declared in <root>.MyDataClass.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyDataClass'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:<root>.MyDataClass [val]
+          TYPE_OP type=<root>.MyDataClass origin=IMPLICIT_CAST typeOperand=<root>.MyDataClass
+            GET_VAR 'other: kotlin.Any? declared in <root>.MyDataClass.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                ARG arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:string type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                  receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+                ARG arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:string type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                  receiver: GET_VAR 'val tmp_0: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyDataClass'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                ARG arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitive type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+                ARG arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitive type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  receiver: GET_VAR 'val tmp_0: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyDataClass'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                ARG arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:stringList type:kotlin.collections.List<kotlin.String> visibility:private [final]' type=kotlin.collections.List<kotlin.String> origin=null
+                  receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+                ARG arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:stringList type:kotlin.collections.List<kotlin.String> visibility:private [final]' type=kotlin.collections.List<kotlin.String> origin=null
+                  receiver: GET_VAR 'val tmp_0: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyDataClass'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                ARG arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitiveList type:kotlin.collections.List<kotlin.Int> visibility:private [final]' type=kotlin.collections.List<kotlin.Int> origin=null
+                  receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+                ARG arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitiveList type:kotlin.collections.List<kotlin.Int> visibility:private [final]' type=kotlin.collections.List<kotlin.Int> origin=null
+                  receiver: GET_VAR 'val tmp_0: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyDataClass'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                ARG arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClass type:<root>.MyNestedDataClass visibility:private [final]' type=<root>.MyNestedDataClass origin=null
+                  receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+                ARG arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClass type:<root>.MyNestedDataClass visibility:private [final]' type=<root>.MyNestedDataClass origin=null
+                  receiver: GET_VAR 'val tmp_0: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyDataClass'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                ARG arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClassList type:kotlin.collections.List<<root>.MyNestedDataClass> visibility:private [final]' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=null
+                  receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+                ARG arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClassList type:kotlin.collections.List<<root>.MyNestedDataClass> visibility:private [final]' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=null
+                  receiver: GET_VAR 'val tmp_0: <root>.MyDataClass declared in <root>.MyDataClass.equals' type=<root>.MyDataClass origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyDataClass'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyDataClass'
+          CONST Boolean type=kotlin.Boolean value=true
+    FUN GENERATED_DATA_CLASS_MEMBER name:hashCode visibility:public modality:OPEN returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
       overridden:
         public open fun hashCode (): kotlin.Int declared in kotlin.Any
-    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN returnType:kotlin.String [fake_override]
-      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:kotlin.Any
+        public open fun hashCode (): kotlin.Int declared in org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable
+      BLOCK_BODY
+        VAR name:result type:kotlin.Int [var]
+          CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.String' type=kotlin.Int origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:string type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.hashCode' type=<root>.MyDataClass origin=null
+        SET_VAR 'var result: kotlin.Int declared in <root>.MyDataClass.hashCode' type=kotlin.Unit origin=EQ
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              ARG <this>: GET_VAR 'var result: kotlin.Int declared in <root>.MyDataClass.hashCode' type=kotlin.Int origin=null
+              ARG other: CONST Int type=kotlin.Int value=31
+            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitive type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.hashCode' type=<root>.MyDataClass origin=null
+        SET_VAR 'var result: kotlin.Int declared in <root>.MyDataClass.hashCode' type=kotlin.Unit origin=EQ
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              ARG <this>: GET_VAR 'var result: kotlin.Int declared in <root>.MyDataClass.hashCode' type=kotlin.Int origin=null
+              ARG other: CONST Int type=kotlin.Int value=31
+            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.collections.List' type=kotlin.Int origin=null
+              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:stringList type:kotlin.collections.List<kotlin.String> visibility:private [final]' type=kotlin.collections.List<kotlin.String> origin=null
+                receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.hashCode' type=<root>.MyDataClass origin=null
+        SET_VAR 'var result: kotlin.Int declared in <root>.MyDataClass.hashCode' type=kotlin.Unit origin=EQ
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              ARG <this>: GET_VAR 'var result: kotlin.Int declared in <root>.MyDataClass.hashCode' type=kotlin.Int origin=null
+              ARG other: CONST Int type=kotlin.Int value=31
+            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.collections.List' type=kotlin.Int origin=null
+              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitiveList type:kotlin.collections.List<kotlin.Int> visibility:private [final]' type=kotlin.collections.List<kotlin.Int> origin=null
+                receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.hashCode' type=<root>.MyDataClass origin=null
+        SET_VAR 'var result: kotlin.Int declared in <root>.MyDataClass.hashCode' type=kotlin.Unit origin=EQ
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              ARG <this>: GET_VAR 'var result: kotlin.Int declared in <root>.MyDataClass.hashCode' type=kotlin.Int origin=null
+              ARG other: CONST Int type=kotlin.Int value=31
+            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in <root>.MyNestedDataClass' type=kotlin.Int origin=null
+              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClass type:<root>.MyNestedDataClass visibility:private [final]' type=<root>.MyNestedDataClass origin=null
+                receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.hashCode' type=<root>.MyDataClass origin=null
+        SET_VAR 'var result: kotlin.Int declared in <root>.MyDataClass.hashCode' type=kotlin.Unit origin=EQ
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            ARG <this>: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              ARG <this>: GET_VAR 'var result: kotlin.Int declared in <root>.MyDataClass.hashCode' type=kotlin.Int origin=null
+              ARG other: CONST Int type=kotlin.Int value=31
+            ARG other: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.collections.List' type=kotlin.Int origin=null
+              ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClassList type:kotlin.collections.List<<root>.MyNestedDataClass> visibility:private [final]' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=null
+                receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.hashCode' type=<root>.MyDataClass origin=null
+        RETURN type=kotlin.Nothing from='public open fun hashCode (): kotlin.Int declared in <root>.MyDataClass'
+          GET_VAR 'var result: kotlin.Int declared in <root>.MyDataClass.hashCode' type=kotlin.Int origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:toString visibility:public modality:OPEN returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyDataClass
       overridden:
         public open fun toString (): kotlin.String declared in kotlin.Any
-    FUN GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.SimpleClassGenerator.Key] name:foo visibility:public modality:FINAL returnType:kotlin.String
-      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:foo.bar.MyClass
+        public open fun toString (): kotlin.String declared in org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable
       BLOCK_BODY
-        RETURN type=kotlin.Nothing from='public final fun foo (): kotlin.String declared in foo.bar.MyClass'
-          CONST String type=kotlin.String value="Hello world"
+        RETURN type=kotlin.Nothing from='public open fun toString (): kotlin.String declared in <root>.MyDataClass'
+          STRING_CONCATENATION type=kotlin.String
+            CONST String type=kotlin.String value="MyDataClass("
+            CONST String type=kotlin.String value="string="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:string type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.toString' type=<root>.MyDataClass origin=null
+            CONST String type=kotlin.String value=", "
+            CONST String type=kotlin.String value="primitive="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitive type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.toString' type=<root>.MyDataClass origin=null
+            CONST String type=kotlin.String value=", "
+            CONST String type=kotlin.String value="stringList="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:stringList type:kotlin.collections.List<kotlin.String> visibility:private [final]' type=kotlin.collections.List<kotlin.String> origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.toString' type=<root>.MyDataClass origin=null
+            CONST String type=kotlin.String value=", "
+            CONST String type=kotlin.String value="primitiveList="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:primitiveList type:kotlin.collections.List<kotlin.Int> visibility:private [final]' type=kotlin.collections.List<kotlin.Int> origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.toString' type=<root>.MyDataClass origin=null
+            CONST String type=kotlin.String value=", "
+            CONST String type=kotlin.String value="deepCopiableClass="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClass type:<root>.MyNestedDataClass visibility:private [final]' type=<root>.MyNestedDataClass origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.toString' type=<root>.MyDataClass origin=null
+            CONST String type=kotlin.String value=", "
+            CONST String type=kotlin.String value="deepCopiableClassList="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:deepCopiableClassList type:kotlin.collections.List<<root>.MyNestedDataClass> visibility:private [final]' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=null
+              receiver: GET_VAR '<this>: <root>.MyDataClass declared in <root>.MyDataClass.toString' type=<root>.MyDataClass origin=null
+            CONST String type=kotlin.String value=")"
+  CLASS CLASS name:MyNestedDataClass modality:FINAL visibility:public [data] superTypes:[kotlin.Any; org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable<<root>.MyNestedDataClass>]
+    annotations:
+      DeepCopy
+    thisReceiver: VALUE_PARAMETER INSTANCE_RECEIVER kind:DispatchReceiver name:<this> type:<root>.MyNestedDataClass
+    PROPERTY name:value visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.String visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'value: kotlin.String declared in <root>.MyNestedDataClass.<init>' type=kotlin.String origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-value> visibility:public modality:FINAL returnType:kotlin.String
+        VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyNestedDataClass
+        correspondingProperty: PROPERTY name:value visibility:public modality:FINAL [val]
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-value> (): kotlin.String declared in <root>.MyNestedDataClass'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: <root>.MyNestedDataClass declared in <root>.MyNestedDataClass.<get-value>' type=<root>.MyNestedDataClass origin=null
+    CONSTRUCTOR visibility:public returnType:<root>.MyNestedDataClass [primary]
+      VALUE_PARAMETER kind:Regular name:value index:0 type:kotlin.String
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:MyNestedDataClass modality:FINAL visibility:public [data] superTypes:[kotlin.Any; org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable<<root>.MyNestedDataClass>]' type=kotlin.Unit
+    FUN GENERATED[org.jetbrains.kotlin.compiler.plugin.template.fir.SimpleClassGenerator.Key] name:deepCopy visibility:public modality:FINAL returnType:<root>.MyNestedDataClass
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyNestedDataClass
+      overridden:
+        public abstract fun deepCopy (): T of org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable declared in org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun deepCopy (): <root>.MyNestedDataClass declared in <root>.MyNestedDataClass'
+          CONSTRUCTOR_CALL 'public constructor <init> (value: kotlin.String) declared in <root>.MyNestedDataClass' type=<root>.MyNestedDataClass origin=null
+            ARG value: CALL 'public final fun <get-value> (): kotlin.String declared in <root>.MyNestedDataClass' type=kotlin.String origin=null
+              ARG <this>: GET_VAR '<this>: <root>.MyNestedDataClass declared in <root>.MyNestedDataClass.deepCopy' type=<root>.MyNestedDataClass origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:component1 visibility:public modality:FINAL returnType:kotlin.String [operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyNestedDataClass
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component1 (): kotlin.String declared in <root>.MyNestedDataClass'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+            receiver: GET_VAR '<this>: <root>.MyNestedDataClass declared in <root>.MyNestedDataClass.component1' type=<root>.MyNestedDataClass origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:copy visibility:public modality:FINAL returnType:<root>.MyNestedDataClass
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyNestedDataClass
+      VALUE_PARAMETER kind:Regular name:value index:1 type:kotlin.String
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+            receiver: GET_VAR '<this>: <root>.MyNestedDataClass declared in <root>.MyNestedDataClass.copy' type=<root>.MyNestedDataClass origin=null
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun copy (value: kotlin.String): <root>.MyNestedDataClass declared in <root>.MyNestedDataClass'
+          CONSTRUCTOR_CALL 'public constructor <init> (value: kotlin.String) declared in <root>.MyNestedDataClass' type=<root>.MyNestedDataClass origin=null
+            ARG value: GET_VAR 'value: kotlin.String declared in <root>.MyNestedDataClass.copy' type=kotlin.String origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:equals visibility:public modality:OPEN returnType:kotlin.Boolean [operator]
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyNestedDataClass
+      VALUE_PARAMETER kind:Regular name:other index:1 type:kotlin.Any?
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              ARG arg0: GET_VAR '<this>: <root>.MyNestedDataClass declared in <root>.MyNestedDataClass.equals' type=<root>.MyNestedDataClass origin=null
+              ARG arg1: GET_VAR 'other: kotlin.Any? declared in <root>.MyNestedDataClass.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyNestedDataClass'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=<root>.MyNestedDataClass
+              GET_VAR 'other: kotlin.Any? declared in <root>.MyNestedDataClass.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyNestedDataClass'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_1 type:<root>.MyNestedDataClass [val]
+          TYPE_OP type=<root>.MyNestedDataClass origin=IMPLICIT_CAST typeOperand=<root>.MyNestedDataClass
+            GET_VAR 'other: kotlin.Any? declared in <root>.MyNestedDataClass.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              ARG <this>: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                ARG arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                  receiver: GET_VAR '<this>: <root>.MyNestedDataClass declared in <root>.MyNestedDataClass.equals' type=<root>.MyNestedDataClass origin=null
+                ARG arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                  receiver: GET_VAR 'val tmp_1: <root>.MyNestedDataClass declared in <root>.MyNestedDataClass.equals' type=<root>.MyNestedDataClass origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyNestedDataClass'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.MyNestedDataClass'
+          CONST Boolean type=kotlin.Boolean value=true
+    FUN GENERATED_DATA_CLASS_MEMBER name:hashCode visibility:public modality:OPEN returnType:kotlin.Int
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyNestedDataClass
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+        public open fun hashCode (): kotlin.Int declared in org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun hashCode (): kotlin.Int declared in <root>.MyNestedDataClass'
+          CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.String' type=kotlin.Int origin=null
+            ARG <this>: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: <root>.MyNestedDataClass declared in <root>.MyNestedDataClass.hashCode' type=<root>.MyNestedDataClass origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:toString visibility:public modality:OPEN returnType:kotlin.String
+      VALUE_PARAMETER kind:DispatchReceiver name:<this> index:0 type:<root>.MyNestedDataClass
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+        public open fun toString (): kotlin.String declared in org.jetbrains.kotlin.compiler.plugin.template.DeepCopiable
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun toString (): kotlin.String declared in <root>.MyNestedDataClass'
+          STRING_CONCATENATION type=kotlin.String
+            CONST String type=kotlin.String value="MyNestedDataClass("
+            CONST String type=kotlin.String value="value="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:value type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: <root>.MyNestedDataClass declared in <root>.MyNestedDataClass.toString' type=<root>.MyNestedDataClass origin=null
+            CONST String type=kotlin.String value=")"
+  FUN name:box visibility:public modality:FINAL returnType:kotlin.String
+    BLOCK_BODY
+      VAR name:original type:<root>.MyDataClass [val]
+        CONSTRUCTOR_CALL 'public constructor <init> (string: kotlin.String, primitive: kotlin.Int, stringList: kotlin.collections.List<kotlin.String>, primitiveList: kotlin.collections.List<kotlin.Int>, deepCopiableClass: <root>.MyNestedDataClass, deepCopiableClassList: kotlin.collections.List<<root>.MyNestedDataClass>) declared in <root>.MyDataClass' type=<root>.MyDataClass origin=null
+          ARG string: CONST String type=kotlin.String value="a"
+          ARG primitive: CONST Int type=kotlin.Int value=1
+          ARG stringList: CALL 'public final fun listOf <T> (vararg elements: T of kotlin.collections.listOf): kotlin.collections.List<T of kotlin.collections.listOf> declared in kotlin.collections' type=kotlin.collections.List<kotlin.String> origin=null
+            TYPE_ARG T: kotlin.String
+            ARG elements: VARARG type=kotlin.Array<out kotlin.String> varargElementType=kotlin.String
+              CONST String type=kotlin.String value="c"
+              CONST String type=kotlin.String value="d"
+          ARG primitiveList: CALL 'public final fun listOf <T> (vararg elements: T of kotlin.collections.listOf): kotlin.collections.List<T of kotlin.collections.listOf> declared in kotlin.collections' type=kotlin.collections.List<kotlin.Int> origin=null
+            TYPE_ARG T: kotlin.Int
+            ARG elements: VARARG type=kotlin.Array<out kotlin.Int> varargElementType=kotlin.Int
+              CONST Int type=kotlin.Int value=1
+              CONST Int type=kotlin.Int value=2
+          ARG deepCopiableClass: CONSTRUCTOR_CALL 'public constructor <init> (value: kotlin.String) declared in <root>.MyNestedDataClass' type=<root>.MyNestedDataClass origin=null
+            ARG value: CONST String type=kotlin.String value="nestedA"
+          ARG deepCopiableClassList: CALL 'public final fun listOf <T> (vararg elements: T of kotlin.collections.listOf): kotlin.collections.List<T of kotlin.collections.listOf> declared in kotlin.collections' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=null
+            TYPE_ARG T: <root>.MyNestedDataClass
+            ARG elements: VARARG type=kotlin.Array<out <root>.MyNestedDataClass> varargElementType=<root>.MyNestedDataClass
+              CONSTRUCTOR_CALL 'public constructor <init> (value: kotlin.String) declared in <root>.MyNestedDataClass' type=<root>.MyNestedDataClass origin=null
+                ARG value: CONST String type=kotlin.String value="nestedA"
+              CONSTRUCTOR_CALL 'public constructor <init> (value: kotlin.String) declared in <root>.MyNestedDataClass' type=<root>.MyNestedDataClass origin=null
+                ARG value: CONST String type=kotlin.String value="nestedB"
+      VAR name:deepCopied type:<root>.MyDataClass [val]
+        CALL 'public final fun deepCopy (): <root>.MyDataClass declared in <root>.MyDataClass' type=<root>.MyDataClass origin=null
+          ARG <this>: GET_VAR 'val original: <root>.MyDataClass declared in <root>.box' type=<root>.MyDataClass origin=null
+      VAR name:equality type:kotlin.Boolean [val]
+        WHEN type=kotlin.Boolean origin=ANDAND
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQEQ
+              ARG <this>: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQEQ
+                ARG arg0: GET_VAR 'val deepCopied: <root>.MyDataClass declared in <root>.box' type=<root>.MyDataClass origin=null
+                ARG arg1: GET_VAR 'val original: <root>.MyDataClass declared in <root>.box' type=<root>.MyDataClass origin=null
+            then: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+              ARG arg0: GET_VAR 'val deepCopied: <root>.MyDataClass declared in <root>.box' type=<root>.MyDataClass origin=null
+              ARG arg1: GET_VAR 'val original: <root>.MyDataClass declared in <root>.box' type=<root>.MyDataClass origin=null
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: CONST Boolean type=kotlin.Boolean value=false
+      VAR name:nestedClassesEquality type:kotlin.Boolean [val]
+        CALL 'public final fun all <T> (<this>: kotlin.collections.Iterable<T of kotlin.collections.all>, predicate: kotlin.Function1<T of kotlin.collections.all, kotlin.Boolean>): kotlin.Boolean declared in kotlin.collections' type=kotlin.Boolean origin=null
+          TYPE_ARG T: kotlin.Pair<<root>.MyNestedDataClass, <root>.MyNestedDataClass>
+          ARG <this>: CALL 'public final fun zip <T, R> (<this>: kotlin.collections.Iterable<T of kotlin.collections.zip>, other: kotlin.collections.Iterable<R of kotlin.collections.zip>): kotlin.collections.List<kotlin.Pair<T of kotlin.collections.zip, R of kotlin.collections.zip>> declared in kotlin.collections' type=kotlin.collections.List<kotlin.Pair<<root>.MyNestedDataClass, <root>.MyNestedDataClass>> origin=null
+            TYPE_ARG T: <root>.MyNestedDataClass
+            TYPE_ARG R: <root>.MyNestedDataClass
+            ARG <this>: CALL 'public final fun <get-deepCopiableClassList> (): kotlin.collections.List<<root>.MyNestedDataClass> declared in <root>.MyDataClass' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=GET_PROPERTY
+              ARG <this>: GET_VAR 'val original: <root>.MyDataClass declared in <root>.box' type=<root>.MyDataClass origin=null
+            ARG other: CALL 'public final fun <get-deepCopiableClassList> (): kotlin.collections.List<<root>.MyNestedDataClass> declared in <root>.MyDataClass' type=kotlin.collections.List<<root>.MyNestedDataClass> origin=GET_PROPERTY
+              ARG <this>: GET_VAR 'val deepCopied: <root>.MyDataClass declared in <root>.box' type=<root>.MyDataClass origin=null
+          ARG predicate: FUN_EXPR type=kotlin.Function1<kotlin.Pair<<root>.MyNestedDataClass, <root>.MyNestedDataClass>, kotlin.Boolean> origin=LAMBDA
+            FUN LOCAL_FUNCTION_FOR_LAMBDA name:<anonymous> visibility:local modality:FINAL returnType:kotlin.Boolean
+              VALUE_PARAMETER DESTRUCTURED_OBJECT_PARAMETER kind:Regular name:<destruct> index:0 type:kotlin.Pair<<root>.MyNestedDataClass, <root>.MyNestedDataClass>
+              BLOCK_BODY
+                VAR IR_DESTRUCTURED_PARAMETER_VARIABLE name:original type:<root>.MyNestedDataClass [val]
+                  CALL 'public final fun component1 (): A of kotlin.Pair declared in kotlin.Pair' type=<root>.MyNestedDataClass origin=COMPONENT_N(index=1)
+                    ARG <this>: GET_VAR '<destruct>: kotlin.Pair<<root>.MyNestedDataClass, <root>.MyNestedDataClass> declared in <root>.box.<anonymous>' type=kotlin.Pair<<root>.MyNestedDataClass, <root>.MyNestedDataClass> origin=null
+                VAR IR_DESTRUCTURED_PARAMETER_VARIABLE name:deepCopied type:<root>.MyNestedDataClass [val]
+                  CALL 'public final fun component2 (): B of kotlin.Pair declared in kotlin.Pair' type=<root>.MyNestedDataClass origin=COMPONENT_N(index=2)
+                    ARG <this>: GET_VAR '<destruct>: kotlin.Pair<<root>.MyNestedDataClass, <root>.MyNestedDataClass> declared in <root>.box.<anonymous>' type=kotlin.Pair<<root>.MyNestedDataClass, <root>.MyNestedDataClass> origin=null
+                RETURN type=kotlin.Nothing from='local final fun <anonymous> (<destruct>: kotlin.Pair<<root>.MyNestedDataClass, <root>.MyNestedDataClass>): kotlin.Boolean declared in <root>.box'
+                  WHEN type=kotlin.Boolean origin=ANDAND
+                    BRANCH
+                      if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQEQ
+                        ARG <this>: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQEQ
+                          ARG arg0: GET_VAR 'val deepCopied: <root>.MyNestedDataClass declared in <root>.box.<anonymous>' type=<root>.MyNestedDataClass origin=null
+                          ARG arg1: GET_VAR 'val original: <root>.MyNestedDataClass declared in <root>.box.<anonymous>' type=<root>.MyNestedDataClass origin=null
+                      then: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                        ARG arg0: GET_VAR 'val deepCopied: <root>.MyNestedDataClass declared in <root>.box.<anonymous>' type=<root>.MyNestedDataClass origin=null
+                        ARG arg1: GET_VAR 'val original: <root>.MyNestedDataClass declared in <root>.box.<anonymous>' type=<root>.MyNestedDataClass origin=null
+                    BRANCH
+                      if: CONST Boolean type=kotlin.Boolean value=true
+                      then: CONST Boolean type=kotlin.Boolean value=false
+      RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in <root>'
+        WHEN type=kotlin.String origin=IF
+          BRANCH
+            if: WHEN type=kotlin.Boolean origin=ANDAND
+              BRANCH
+                if: GET_VAR 'val equality: kotlin.Boolean declared in <root>.box' type=kotlin.Boolean origin=null
+                then: GET_VAR 'val nestedClassesEquality: kotlin.Boolean declared in <root>.box' type=kotlin.Boolean origin=null
+              BRANCH
+                if: CONST Boolean type=kotlin.Boolean value=true
+                then: CONST Boolean type=kotlin.Boolean value=false
+            then: CONST String type=kotlin.String value="OK"
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: STRING_CONCATENATION type=kotlin.String
+              CONST String type=kotlin.String value="Fail: "
+              GET_VAR 'val deepCopied: <root>.MyDataClass declared in <root>.box' type=<root>.MyDataClass origin=null

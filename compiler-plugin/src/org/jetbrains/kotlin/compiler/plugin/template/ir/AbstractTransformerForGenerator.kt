@@ -25,7 +25,6 @@ abstract class AbstractTransformerForGenerator(protected val context: IrPluginCo
 
     abstract fun interestedIn(key: GeneratedDeclarationKey?): Boolean
     abstract fun generateBodyForFunction(function: IrSimpleFunction, key: GeneratedDeclarationKey?): IrBody?
-    abstract fun generateBodyForConstructor(constructor: IrConstructor, key: GeneratedDeclarationKey?): IrBody?
 
     final override fun visitElement(element: IrElement) {
         when (element) {
@@ -41,13 +40,6 @@ abstract class AbstractTransformerForGenerator(protected val context: IrPluginCo
         if (origin !is IrDeclarationOrigin.GeneratedByPlugin || !interestedIn(origin.pluginKey)) return
         require(declaration.body == null)
         declaration.body = generateBodyForFunction(declaration, origin.pluginKey)
-    }
-
-    final override fun visitConstructor(declaration: IrConstructor) {
-        val origin = declaration.origin
-        if (origin !is IrDeclarationOrigin.GeneratedByPlugin || !interestedIn(origin.pluginKey)) return
-        require(declaration.body == null)
-        declaration.body = generateBodyForConstructor(declaration, origin.pluginKey)
     }
 
     // ------------------------ utilities ------------------------
@@ -69,24 +61,4 @@ abstract class AbstractTransformerForGenerator(protected val context: IrPluginCo
         return irFactory.createBlockBody(-1, -1, listOf(returnStatement))
     }
 
-    protected fun generateBodyForDefaultConstructor(declaration: IrConstructor): IrBody? {
-        val type = declaration.returnType as? IrSimpleType ?: return null
-
-        val delegatingAnyCall = IrDelegatingConstructorCallImpl(
-            -1,
-            -1,
-            irBuiltIns.anyType,
-            irBuiltIns.anyClass.owner.primaryConstructor?.symbol ?: return null,
-            typeArgumentsCount = 0,
-        )
-
-        val initializerCall = IrInstanceInitializerCallImpl(
-            -1,
-            -1,
-            (declaration.parent as? IrClass)?.symbol ?: return null,
-            type
-        )
-
-        return irFactory.createBlockBody(-1, -1, listOf(delegatingAnyCall, initializerCall))
-    }
 }

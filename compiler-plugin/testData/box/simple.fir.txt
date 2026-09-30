@@ -1,24 +1,79 @@
 FILE: simple.kt
-    package foo.bar
+    @R|org/jetbrains/kotlin/compiler/plugin/template/DeepCopy|() public final data class MyDataClass : R|kotlin/Any|, R|org/jetbrains/kotlin/compiler/plugin/template/DeepCopiable<MyDataClass>| {
+        public constructor(string: R|kotlin/String|, primitive: R|kotlin/Int|, stringList: R|kotlin/collections/List<kotlin/String>|, primitiveList: R|kotlin/collections/List<kotlin/Int>|, deepCopiableClass: R|MyNestedDataClass|, deepCopiableClassList: R|kotlin/collections/List<MyNestedDataClass>|): R|MyDataClass| {
+            super<R|kotlin/Any|>()
+        }
 
-    @R|org/jetbrains/kotlin/compiler/plugin/template/SomeAnnotation|() public final fun box(): R|kotlin/String| {
-        lval result: R|kotlin/String| = R|foo/bar/MyClass|().R|foo/bar/MyClass.foo|()
+        public final val string: R|kotlin/String| = R|<local>/string|
+            public get(): R|kotlin/String|
+
+        public final val primitive: R|kotlin/Int| = R|<local>/primitive|
+            public get(): R|kotlin/Int|
+
+        public final val stringList: R|kotlin/collections/List<kotlin/String>| = R|<local>/stringList|
+            public get(): R|kotlin/collections/List<kotlin/String>|
+
+        public final val primitiveList: R|kotlin/collections/List<kotlin/Int>| = R|<local>/primitiveList|
+            public get(): R|kotlin/collections/List<kotlin/Int>|
+
+        public final val deepCopiableClass: R|MyNestedDataClass| = R|<local>/deepCopiableClass|
+            public get(): R|MyNestedDataClass|
+
+        public final val deepCopiableClassList: R|kotlin/collections/List<MyNestedDataClass>| = R|<local>/deepCopiableClassList|
+            public get(): R|kotlin/collections/List<MyNestedDataClass>|
+
+        public final operator fun component1(): R|kotlin/String|
+
+        public final operator fun component2(): R|kotlin/Int|
+
+        public final operator fun component3(): R|kotlin/collections/List<kotlin/String>|
+
+        public final operator fun component4(): R|kotlin/collections/List<kotlin/Int>|
+
+        public final operator fun component5(): R|MyNestedDataClass|
+
+        public final operator fun component6(): R|kotlin/collections/List<MyNestedDataClass>|
+
+        public final fun copy(string: R|kotlin/String| = this@R|/MyDataClass|.R|/MyDataClass.string|, primitive: R|kotlin/Int| = this@R|/MyDataClass|.R|/MyDataClass.primitive|, stringList: R|kotlin/collections/List<kotlin/String>| = this@R|/MyDataClass|.R|/MyDataClass.stringList|, primitiveList: R|kotlin/collections/List<kotlin/Int>| = this@R|/MyDataClass|.R|/MyDataClass.primitiveList|, deepCopiableClass: R|MyNestedDataClass| = this@R|/MyDataClass|.R|/MyDataClass.deepCopiableClass|, deepCopiableClassList: R|kotlin/collections/List<MyNestedDataClass>| = this@R|/MyDataClass|.R|/MyDataClass.deepCopiableClassList|): R|MyDataClass|
+
+        public final fun deepCopy(): R|MyDataClass|
+
+    }
+    @R|org/jetbrains/kotlin/compiler/plugin/template/DeepCopy|() public final data class MyNestedDataClass : R|kotlin/Any|, R|org/jetbrains/kotlin/compiler/plugin/template/DeepCopiable<MyNestedDataClass>| {
+        public constructor(value: R|kotlin/String|): R|MyNestedDataClass| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val value: R|kotlin/String| = R|<local>/value|
+            public get(): R|kotlin/String|
+
+        public final operator fun component1(): R|kotlin/String|
+
+        public final fun copy(value: R|kotlin/String| = this@R|/MyNestedDataClass|.R|/MyNestedDataClass.value|): R|MyNestedDataClass|
+
+        public final fun deepCopy(): R|MyNestedDataClass|
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval original: R|MyDataClass| = R|/MyDataClass.MyDataClass|(String(a), Int(1), R|kotlin/collections/listOf|<R|kotlin/String|>(vararg(String(c), String(d))), R|kotlin/collections/listOf|<R|kotlin/Int|>(vararg(Int(1), Int(2))), R|/MyNestedDataClass.MyNestedDataClass|(String(nestedA)), R|kotlin/collections/listOf|<R|MyNestedDataClass|>(vararg(R|/MyNestedDataClass.MyNestedDataClass|(String(nestedA)), R|/MyNestedDataClass.MyNestedDataClass|(String(nestedB)))))
+        lval deepCopied: R|MyDataClass| = R|<local>/original|.R|/MyDataClass.deepCopy|()
+        lval equality: R|kotlin/Boolean| = !==(R|<local>/deepCopied|, R|<local>/original|) && ==(R|<local>/deepCopied|, R|<local>/original|)
+        lval nestedClassesEquality: R|kotlin/Boolean| = R|<local>/original|.R|/MyDataClass.deepCopiableClassList|.R|kotlin/collections/zip|<R|MyNestedDataClass|, R|MyNestedDataClass|>(R|<local>/deepCopied|.R|/MyDataClass.deepCopiableClassList|).R|kotlin/collections/all|<R|kotlin/Pair<MyNestedDataClass, MyNestedDataClass>|>(<L> = all@fun <anonymous>(<destruct>: R|kotlin/Pair<MyNestedDataClass, MyNestedDataClass>|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+            lval original: R|MyNestedDataClass| = R|<local>/<destruct>|.R|SubstitutionOverride<kotlin/Pair.component1: R|MyNestedDataClass|>|()
+            lval deepCopied: R|MyNestedDataClass| = R|<local>/<destruct>|.R|SubstitutionOverride<kotlin/Pair.component2: R|MyNestedDataClass|>|()
+            ^  {
+                !==(R|<local>/deepCopied|, R|<local>/original|) && ==(R|<local>/deepCopied|, R|<local>/original|)
+            }
+
+        }
+        )
         ^box when () {
-            ==(R|<local>/result|, String(Hello world)) ->  {
+            R|<local>/equality| && R|<local>/nestedClassesEquality| ->  {
                 String(OK)
             }
             else ->  {
-                <strcat>(String(Fail: ), R|<local>/result|)
+                <strcat>(String(Fail: ), R|<local>/deepCopied|)
             }
         }
-
-    }
-FILE: foo/bar/MyClass.kt
-    package foo.bar
-
-    public final class MyClass : R|kotlin/Any| {
-        public final fun foo(): R|kotlin/String|
-
-        public constructor(): R|foo/bar/MyClass|
 
     }
